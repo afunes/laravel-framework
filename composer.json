@@ -3,6 +3,7 @@
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
+    "version": "6.20.999",
     "homepage": "https://laravel.com",
     "support": {
         "issues": "https://github.com/laravel/framework/issues",
