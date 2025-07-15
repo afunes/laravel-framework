@@ -952,6 +952,7 @@ class FoundationTestResponseTest extends TestCase
 
 class JsonSerializableMixedResourcesStub implements JsonSerializable
 {
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return [
@@ -986,6 +987,7 @@ class JsonSerializableMixedResourcesStub implements JsonSerializable
 
 class JsonSerializableSingleResourceStub implements JsonSerializable
 {
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return [
@@ -999,6 +1001,7 @@ class JsonSerializableSingleResourceStub implements JsonSerializable
 
 class JsonSerializableSingleResourceWithIntegersStub implements JsonSerializable
 {
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return [

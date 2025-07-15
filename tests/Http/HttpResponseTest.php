@@ -238,6 +238,7 @@ class JsonableStub implements Jsonable
 
 class JsonSerializableStub implements JsonSerializable
 {
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ['foo' => 'bar'];

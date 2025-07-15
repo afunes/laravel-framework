@@ -116,6 +116,7 @@ class JsonResponseTestJsonableObject implements Jsonable
 
 class JsonResponseTestJsonSerializeObject implements JsonSerializable
 {
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ['foo' => 'bar'];

@@ -522,6 +522,7 @@ abstract class AbstractPaginator implements Htmlable
      *
      * @return \ArrayIterator
      */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return $this->items->getIterator();
@@ -552,6 +553,7 @@ abstract class AbstractPaginator implements Htmlable
      *
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return $this->items->count();
@@ -596,6 +598,7 @@ abstract class AbstractPaginator implements Htmlable
      * @param  mixed  $key
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($key)
     {
         return $this->items->has($key);
@@ -607,6 +610,7 @@ abstract class AbstractPaginator implements Htmlable
      * @param  mixed  $key
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($key)
     {
         return $this->items->get($key);
@@ -619,6 +623,7 @@ abstract class AbstractPaginator implements Htmlable
      * @param  mixed  $value
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($key, $value)
     {
         $this->items->put($key, $value);
@@ -630,6 +635,7 @@ abstract class AbstractPaginator implements Htmlable
      * @param  mixed  $key
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($key)
     {
         $this->items->forget($key);

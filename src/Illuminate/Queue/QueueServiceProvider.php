@@ -17,7 +17,6 @@ use Illuminate\Queue\Failed\NullFailedJobProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use Opis\Closure\SerializableClosure;
 
 class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -260,7 +259,9 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
             $key = base64_decode(substr($key, 7));
         }
 
-        SerializableClosure::setSecretKey($key);
+        if (class_exists(\Laravel\SerializableClosure\SerializableClosure::class)) {
+            \Laravel\SerializableClosure\SerializableClosure::setSecretKey($key);
+        }
     }
 
     /**

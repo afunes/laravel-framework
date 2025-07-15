@@ -4140,6 +4140,7 @@ class TestJsonableObject implements Jsonable
 
 class TestJsonSerializeObject implements JsonSerializable
 {
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ['foo' => 'bar'];
@@ -4148,6 +4149,7 @@ class TestJsonSerializeObject implements JsonSerializable
 
 class TestJsonSerializeWithScalarValueObject implements JsonSerializable
 {
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return 'foo';

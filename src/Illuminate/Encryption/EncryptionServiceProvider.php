@@ -17,7 +17,6 @@ class EncryptionServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerEncrypter();
-        $this->registerOpisSecurityKey();
     }
 
     /**
@@ -33,25 +32,6 @@ class EncryptionServiceProvider extends ServiceProvider
             return new Encrypter($this->parseKey($config), $config['cipher']);
         });
     }
-
-    /**
-     * Configure Opis Closure signing for security.
-     *
-     * @return void
-     */
-    protected function registerOpisSecurityKey()
-    {
-        $config = $this->app->make('config')->get('app');
-
-        if (! class_exists(SerializableClosure::class) || empty($config['key'])) {
-            return;
-        }
-
-        if (method_exists(SerializableClosure::class, 'setSecretKey')) {
-            SerializableClosure::setSecretKey($this->parseKey($config));
-        }
-    }
-
 
     /**
      * Parse the encryption key.

@@ -257,9 +257,10 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      */
     public function prefetch()
     {
-        return strcasecmp($this->server->get('HTTP_X_MOZ'), 'prefetch') === 0 ||
-               strcasecmp($this->headers->get('Purpose'), 'prefetch') === 0;
+        return (strcasecmp((string) $this->server->get('HTTP_X_MOZ', ''), 'prefetch') === 0) ||
+            (strcasecmp((string) $this->headers->get('Purpose', ''), 'prefetch') === 0);
     }
+
 
     /**
      * Determine if the request is over HTTPS.
@@ -632,52 +633,28 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         return $this->all();
     }
 
-    /**
-     * Determine if the given offset exists.
-     *
-     * @param  string  $offset
-     * @return bool
-     */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return Arr::has(
-            $this->all() + $this->route()->parameters(),
-            $offset
-        );
+        return $this->has($offset);
     }
 
-    /**
-     * Get the value at the given offset.
-     *
-     * @param  string  $offset
-     * @return mixed
-     */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return $this->__get($offset);
+        return $this->input($offset);
     }
 
-    /**
-     * Set the value at the given offset.
-     *
-     * @param  string  $offset
-     * @param  mixed  $value
-     * @return void
-     */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
-        $this->getInputSource()->set($offset, $value);
+        $this->request->set($offset, $value);
     }
 
-    /**
-     * Remove the value at the given offset.
-     *
-     * @param  string  $offset
-     * @return void
-     */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        $this->getInputSource()->remove($offset);
+        $this->request->remove($offset);
     }
 
     /**

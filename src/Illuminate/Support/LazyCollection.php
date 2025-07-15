@@ -1203,7 +1203,7 @@ class LazyCollection implements Enumerable
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         if (is_array($this->source)) {
             return count($this->source);
