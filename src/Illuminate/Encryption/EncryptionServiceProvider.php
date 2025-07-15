@@ -47,8 +47,11 @@ class EncryptionServiceProvider extends ServiceProvider
             return;
         }
 
-        SerializableClosure::setSecretKey($this->parseKey($config));
+        if (method_exists(SerializableClosure::class, 'setSecretKey')) {
+            SerializableClosure::setSecretKey($this->parseKey($config));
+        }
     }
+
 
     /**
      * Parse the encryption key.
