@@ -4111,6 +4111,7 @@ class TestArrayAccessImplementation implements ArrayAccess
         return $this->arr[$offset];
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         $this->arr[$offset] = $value;

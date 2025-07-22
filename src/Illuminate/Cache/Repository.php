@@ -592,6 +592,7 @@ class Repository implements ArrayAccess, CacheContract
      * @param  mixed  $value
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($key, $value): void
     {
         $this->put($key, $value, $this->default);

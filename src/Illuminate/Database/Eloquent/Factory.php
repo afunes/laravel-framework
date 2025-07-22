@@ -308,6 +308,7 @@ class Factory implements ArrayAccess
      * @param  callable  $value
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         $this->define($offset, $value);

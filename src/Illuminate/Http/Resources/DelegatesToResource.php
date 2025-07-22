@@ -71,6 +71,7 @@ trait DelegatesToResource
      * @param  mixed  $value
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         $this->resource[$offset] = $value;
