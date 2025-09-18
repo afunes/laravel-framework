@@ -304,6 +304,7 @@ trait FormatsMessages
      */
     protected function replaceInputPlaceholder($message, $attribute)
     {
+        error_reporting(E_ALL & ~E_DEPRECATED);
         $actualValue = $this->getValue($attribute);
 
         if (is_scalar($actualValue) || is_null($actualValue)) {
