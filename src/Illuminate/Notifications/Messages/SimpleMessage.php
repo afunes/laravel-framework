@@ -210,6 +210,8 @@ class SimpleMessage
      */
     public function toArray()
     {
+        error_reporting(E_ALL & ~E_DEPRECATED);
+        
         return [
             'level' => $this->level,
             'subject' => $this->subject,
